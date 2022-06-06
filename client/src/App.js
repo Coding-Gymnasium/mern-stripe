@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Toaster} from 'react-hot-toast';
 
 import Home from "./pages/Home.js";
 import Register from "./pages/Register.js";
@@ -14,6 +15,9 @@ function App() {
   root.render(
     <BrowserRouter>
       <Navigation />
+      <Toaster position="bottom-right" toastOptions={{
+        duration: 3000,
+      }}/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/register" element={<Register />} />
