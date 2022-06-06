@@ -1,9 +1,9 @@
-import express from 'express';
+import express from "express";
 
 const router = express.Router();
 
-router.get('/register', (_req, res) => {
-  res.send('Hello world from node server routes')
-})
+import { register } from "../controllers/auth.js";
+
+router.get("/register", register);
 
 module.exports = router;
