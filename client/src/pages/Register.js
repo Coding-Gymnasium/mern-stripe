@@ -13,13 +13,17 @@ const Register = () => {
   const handleClick = async (e) => {
     try {
       e.preventDefault();
-      const { data } = await axios.post("/register", {
+      const { data } = await axios.post("http://localhost:8000/api/register", {
         name,
         email,
         password,
       });
-      console.log(data)
-      toast.success('Registration successful. Please login')
+      console.log(data);
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        toast.success("Registration successful. Please login");
+      }
     } catch (err) {
       console.log(err);
       toast.error("Something went wrong. Try again");
