@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
@@ -6,6 +7,7 @@ import Input from "../components/Input.js";
 import Button from "../components/Button.js";
 
 const Register = () => {
+  let navigate = useNavigate();
   const [name, setName] = useState("Test");
   const [email, setEmail] = useState("test@test.com");
   const [password, setPassword] = useState("test-password");
@@ -22,7 +24,13 @@ const Register = () => {
       if (data.error) {
         toast.error(data.error);
       } else {
-        toast.success("Registration successful. Please login");
+        setName("");
+        setEmail("");
+        setPassword("");
+        toast.success(
+          `Registration successful! Welcome ${data.user.name}. Please login`
+        );
+        navigate("/login");
       }
     } catch (err) {
       console.log(err);

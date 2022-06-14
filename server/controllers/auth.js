@@ -34,7 +34,9 @@ export const register = async (req, res) => {
       }).save();
 
       const { password, ...rest } = user._doc;
-      return res.json(rest);
+      return res.json({
+        user: rest,
+      });
     } catch (err) {
       console.log(err);
     }
