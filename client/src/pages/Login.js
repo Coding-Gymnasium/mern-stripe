@@ -25,6 +25,7 @@ const Login = () => {
       } else {
         setEmail("");
         setPassword("");
+        localStorage.setItem("auth", JSON.stringify(data));
         navigate("/");
       }
     } catch (err) {
@@ -38,9 +39,7 @@ const Login = () => {
       <div className="container align-items-center d-flex">
         <div className="row col-md-6 offset-md-3 text-center">
           <h1 className="pt-5 fw-bold">Login</h1>
-          <p className="lead pb-4">
-            Access your account
-          </p>
+          <p className="lead pb-4">Access your account</p>
 
           <div className="form-control">
             <div className="d-grid">
