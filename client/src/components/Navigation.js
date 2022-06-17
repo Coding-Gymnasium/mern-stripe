@@ -1,6 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { isAuth } from "../utils/functions.js";
 
 const Navigation = () => {
+  let navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("auth");
+    navigate("/login");
+  };
+
   return (
     <ul className="nav border">
       <li className="nav-item">
@@ -8,16 +16,29 @@ const Navigation = () => {
           Home
         </Link>
       </li>
-      <li className="nav-item">
-        <Link className="nav-link" to="/login">
-          Login
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link className="nav-link" to="/register">
-          Sign up
-        </Link>
-      </li>
+
+      {isAuth() ? (
+        <>
+          <li className="nav-item">
+            <span onClick={logout} className="nav-link">
+              Logout
+            </span>
+          </li>
+        </>
+      ) : (
+        <>
+          <li className="nav-item">
+            <Link className="nav-link" to="/login">
+              Login
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/register">
+              Sign up
+            </Link>
+          </li>
+        </>
+      )}
     </ul>
   );
 };
