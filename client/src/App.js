@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom/client";
+// import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {Toaster} from 'react-hot-toast';
 
@@ -9,10 +9,8 @@ import Navigation from './components/Navigation.js';
 
 import "./App.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
 function App() {
-  root.render(
+  return (
     <BrowserRouter>
       <Navigation />
       <Toaster position="bottom-right" toastOptions={{
