@@ -8,6 +8,7 @@ const Navigation = () => {
   let navigate = useNavigate();
 
   const logout = () => {
+    setState({user: {}, token: ''});
     localStorage.removeItem("auth");
     navigate("/login");
   };
@@ -22,7 +23,7 @@ const Navigation = () => {
         </Link>
       </li>
 
-      {isAuth() ? (
+      {state && state.token ? (
         <>
           <li className="nav-item">
             <span onClick={logout} className="nav-link">
