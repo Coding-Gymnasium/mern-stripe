@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import {UserContext} from '../context'
 
 import Input from "../components/Input.js";
 import Button from "../components/Button.js";
 
 const Login = () => {
+  const [state, setState] = useContext(UserContext);
   let navigate = useNavigate();
   const [email, setEmail] = useState("test@test.com");
   const [password, setPassword] = useState("test-password");
@@ -25,6 +27,7 @@ const Login = () => {
       } else {
         setEmail("");
         setPassword("");
+        setState(data);
         localStorage.setItem("auth", JSON.stringify(data));
         navigate("/");
       }
