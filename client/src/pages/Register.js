@@ -17,12 +17,11 @@ const Register = () => {
   const handleClick = async (e) => {
     try {
       e.preventDefault();
-      const { data } = await axios.post("http://localhost:8000/api/register", {
+      const { data } = await axios.post("/register", {
         name,
         email,
         password,
       });
-      console.log(data);
       if (data.error) {
         toast.error(data.error);
       } else {

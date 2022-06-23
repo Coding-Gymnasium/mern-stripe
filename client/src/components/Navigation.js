@@ -13,8 +13,6 @@ const Navigation = () => {
     navigate("/login");
   };
 
-  console.log('STATE => ', state);
-
   return (
     <ul className="nav border">
       <li className="nav-item">

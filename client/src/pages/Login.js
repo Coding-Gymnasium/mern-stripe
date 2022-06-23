@@ -14,14 +14,12 @@ const Login = () => {
   const [password, setPassword] = useState("test-password");
 
   const handleClick = async (e) => {
-    // console.log('email and password', email, password)
     try {
       e.preventDefault();
-      const { data } = await axios.post("http://localhost:8000/api/login", {
+      const { data } = await axios.post("/login", {
         email,
         password,
       });
-      console.log(data);
       if (data.error) {
         toast.error(data.error);
       } else {
