@@ -1,4 +1,4 @@
-import  axios from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import PriceCard from "../components/cards/PriceCard.js";
 
@@ -14,10 +14,10 @@ const Home = () => {
     setPrices(data);
   };
 
-  const handleClick = async (e) => {
+  const handleClick = async (e, price) => {
     e.preventDefault();
-    console.log('plan clicked')
-  }
+    console.log("plan clicked", price.id);
+  };
 
   return (
     <div className="container-fluid">
@@ -26,7 +26,10 @@ const Home = () => {
         <p className="lead pb-4">Find the right plan for your business</p>
       </div>
       <div className="row pt-5 mb-3 text-center">
-        {prices && prices.map((price) => <PriceCard key={price.id} price={price} handleClick={handleClick}/>)}
+        {prices &&
+          prices.map((price) => (
+            <PriceCard key={price.id} price={price} handleSubscription={handleClick} />
+          ))}
       </div>
     </div>
   );
