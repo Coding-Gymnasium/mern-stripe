@@ -12,7 +12,7 @@ const Register = () => {
   const [name, setName] = useState("Test");
   const [email, setEmail] = useState("test@test.com");
   const [password, setPassword] = useState("test-password");
-  const [state, setState] = useContext(UserContext);
+  const [setState] = useContext(UserContext);
 
   const handleClick = async (e) => {
     try {

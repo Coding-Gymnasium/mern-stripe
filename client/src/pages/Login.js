@@ -8,7 +8,7 @@ import Input from "../components/Input.js";
 import Button from "../components/Button.js";
 
 const Login = () => {
-  const [state, setState] = useContext(UserContext);
+  const [setState] = useContext(UserContext);
   let navigate = useNavigate();
   const [email, setEmail] = useState("test@test.com");
   const [password, setPassword] = useState("test-password");
