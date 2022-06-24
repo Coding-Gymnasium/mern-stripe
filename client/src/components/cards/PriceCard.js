@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const PriceCard = ({ price, handleSubscription }) => {
   const dynamicDescription = () => {
     if (price.nickname === "Basic") {
@@ -19,11 +21,11 @@ const PriceCard = ({ price, handleSubscription }) => {
 
   const borderStyle = () => {
     if (price.nickname === "Premium") return "border-danger";
-  }
+  };
 
   return (
     <div className="col">
-      <div className={ `card mb-4 rounded-3 shadow-sm ${borderStyle()}` }>
+      <div className={`card mb-4 rounded-3 shadow-sm ${borderStyle()}`}>
         <div className={`card-header py-3 ${headerStyle()}`}>
           <h4 className="my-0 fw-normal">{price.nickname}</h4>
         </div>
@@ -45,12 +47,14 @@ const PriceCard = ({ price, handleSubscription }) => {
           {/*Preview Data*/}
           {/*<pre>{JSON.stringify(price, null, 4)}</pre>*/}
 
-          <button
-            onClick={() => handleSubscription(price)}
-            className={`w-100 btn btn-lg ${buttonStyle()} `}
-          >
-            Sign Up
-          </button>
+          <Link to="/register">
+            <button
+              /* onClick={() => handleSubscription(price)}*/
+              className={`w-100 btn btn-lg ${buttonStyle()} `}
+            >
+              Sign Up
+            </button>
+          </Link>
         </div>
       </div>
     </div>
