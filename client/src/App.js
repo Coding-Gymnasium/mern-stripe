@@ -6,6 +6,8 @@ import Home from "./pages/Home.js";
 import Register from "./pages/Register.js";
 import Login from "./pages/Login.js";
 import Navigation from './components/Navigation.js';
+import StripeSuccess from './pages/stripe-success.js';
+import StripeCancel from './pages/stripe-cancel.js';
 
 import "./App.css";
 
@@ -20,6 +22,8 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/stripe/success" element={<StripeSuccess />} />
+        <Route exact path="/stripe/cancel" element={<StripeCancel />} />
       </Routes>
     </BrowserRouter>
   );
