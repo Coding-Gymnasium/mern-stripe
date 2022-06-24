@@ -4,3 +4,7 @@ export const prices = async (req, res) => {
   const prices = await stripe.prices.list();
   res.json(prices.data.reverse());
 };
+
+export const createSubscription = async (req, res) => {
+  console.log(req.body)
+}
