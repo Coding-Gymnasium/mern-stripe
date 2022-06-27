@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { SyncOutlined } from "@ant-design/icons";
 
 const StripeSuccess = () => {
