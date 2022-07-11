@@ -7,6 +7,7 @@ import Login from "./pages/Login.js";
 import Navigation from "./components/Navigation.js";
 import StripeSuccess from "./pages/stripe-success.js";
 import StripeCancel from "./pages/stripe-cancel.js";
+import AuthRoute from "./components/routes/AuthRoute.js";
 
 import "./App.css";
 
@@ -24,8 +25,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/stripe/success" element={<StripeSuccess />} />
-        <Route path="/stripe/cancel" element={<StripeCancel />} />
+        <Route element={<AuthRoute />}>
+          <Route path="/stripe/success" element={<StripeSuccess />} />
+          <Route path="/stripe/cancel" element={<StripeCancel />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
