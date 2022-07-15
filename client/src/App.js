@@ -25,10 +25,23 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route element={<AuthRoute />}>
-          <Route path="/stripe/success" element={<StripeSuccess />} />
-          <Route path="/stripe/cancel" element={<StripeCancel />} />
-        </Route>
+
+        <Route
+          element={
+            <AuthRoute>
+              <StripeSuccess />
+            </AuthRoute>
+          }
+          path="/stripe/success"
+        />
+        <Route
+          element={
+            <AuthRoute>
+              <StripeCancel />
+            </AuthRoute>
+          }
+          path="/stripe/cancel"
+        />
       </Routes>
     </BrowserRouter>
   );
